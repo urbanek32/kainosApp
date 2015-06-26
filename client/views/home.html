@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<div class="col-md-10">
+		<div class="panel panel-default">
+			<div class="panel-heading text-center"><strong>TOP 20 Movies</strong> based on users scores</div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<th>Title</th>
+						<th>Average score</th>
+						<th>Details</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="movie in moviesData">
+							<td>{{ movie.title }}</td>
+							<td>{{ movie.vote_average }}</td>
+							<td><a href="#/movie/{{movie.id}}">More info</a></td>
+						</tr>
+					</tbody> 
+				</table>
+			</div>
+		</div>
+		
+	</div>
+</div>

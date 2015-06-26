@@ -1,0 +1,21 @@
+
+<div class="jumbotron"> 
+
+	<div class="panel panel-info">
+		<div class="panel-heading"><strong>{{movieData.title}}</strong> [{{movieData.vote_average}}/10 ptk]</div>
+		<div class="panel-body">
+			<article id="plot">{{movieData.plot}}</article>
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">Genre</div>
+		<div class="panel-body">
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="g in genresData">{{g.name}}
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>

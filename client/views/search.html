@@ -1,0 +1,60 @@
+<div id="mainSearch" class="container-fluid">
+
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading"><strong>Select genres to find</strong></div>
+			<div class="panel-body">
+				<div class="col-sm-4" ng-repeat="genreName in genresData">
+				<label class="checkbox" >
+				<input 
+					type="checkbox" 
+					name="selectedGenres[]" 
+					value="{{genreName.name}}" 
+					ng-checked="selection.indexOf(genreName.name) > -1"
+					ng-click="toggleSelection(genreName.name)"
+					>{{genreName.name}}
+				</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading"><strong>Type minimum average score to find</strong></div>
+			<div class="panel-body">
+				<input type="number" name="scoreInput" class="form-control" min="1" max="10" maxlength="2" ng-model="formData.score" />
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading"><strong>Results are limited to first 50 records and sorted via Title</strong></div>
+			<div class="panel-body">
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="findMovie()" style="width:100%">Search</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-9" id="results">
+		
+		<table class="table">
+			<thead>
+				<th>Title</th>
+				<th>Average Score</th>
+				<th>Genre</th>
+				<th>Details</th>
+			</thead> 
+			<tbody>
+				<tr ng-repeat="movie in moviesData">
+					<td>{{ movie.title }}</td>
+					<td>{{ movie.vote_average }}</td>
+					<td>{{ movie.name }}</td>
+					<td><a href="#/movie/{{movie.id}}" target="_blank">More info</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
